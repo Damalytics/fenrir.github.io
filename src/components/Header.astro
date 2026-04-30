@@ -1,8 +1,10 @@
 ---
+const base = import.meta.env.BASE_URL
+
 const navItems = [
-  { label: 'Product', href: '/product' },
-  { label: 'Security', href: '/security' },
-  { label: 'Careers', href: '/careers' },
+  { label: 'Product', href: `${base}product` },
+  { label: 'Security', href: `${base}security` },
+  { label: 'Careers', href: `${base}careers` },
 ]
 ---
 
@@ -10,7 +12,7 @@ const navItems = [
   <div class="mx-auto max-w-7xl px-6 lg:px-8">
     <nav class="flex items-center justify-between h-18 lg:h-20">
       <!-- Logo -->
-      <a href="/" class="flex items-center gap-3 group">
+      <a href={base} class="flex items-center gap-3 group">
         <svg class="h-8 w-auto transition-transform duration-300 group-hover:scale-105" viewBox="0 0 732 516" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M208.5 0C190.5 48.5 201.1 135 208.5 157.398C144 224.5 155.5 238 47 264.5C99 264.5 124.5 276.832 180.5 244.5C148.5 288.5 121.5 303.5 0 315.5C61.5 326.5 80.5 344 166 319C145.5 352 144.5 354 98 372.5C73.5 382.247 52.5 392 4.5 425.5C118.5 383.5 142.538 409.261 199.5 380C168 440.5 88 443 39 505.5C136.5 451 159.5 470.5 233 425.5C225 472.5 199.5 469 145.5 515.5C290.5 480 281.5 430.633 387 372.5C436 345.5 626 350 670 326C672 323.5 686.383 294.494 687 294C692.5 287 717 258 719.5 254.5L721.5 251L730 231C731.5 221 731 205 731 202.5L516 174.5C501 161 475 139.5 440 132C410.5 125.679 336 131.5 336 131.5L208.5 0ZM494 192C474 200.5 462.5 204 448 205.5C436 201.5 423 188 404 171C459.5 171.5 456 166.5 494 192Z" fill="#1A7A45"/>
         </svg>
@@ -30,7 +32,7 @@ const navItems = [
           </a>
         ))}
         <a
-          href="/#contact"
+          href={`${base}#contact`}
           class="ml-2 inline-flex items-center px-5 py-2 text-sm font-medium rounded-md
                  bg-primary text-foreground
                  hover:bg-primary-bright transition-colors duration-200"
@@ -65,7 +67,7 @@ const navItems = [
         </a>
       ))}
       <a
-        href="/#contact"
+        href={`${base}#contact`}
         class="inline-flex items-center justify-center px-5 py-2.5 text-sm font-medium rounded-md
                bg-primary text-foreground mt-2
                hover:bg-primary-bright transition-colors duration-200"

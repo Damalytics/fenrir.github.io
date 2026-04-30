@@ -1,4 +1,6 @@
 ---
+const base = import.meta.env.BASE_URL
+
 const problems = [
   {
     icon: `<svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
@@ -58,7 +60,7 @@ const problems = [
 
     <!-- Link to product -->
     <a
-      href="/product"
+      href={`${base}product`}
       class="inline-flex items-center gap-2 text-sm font-medium text-primary-bright hover:text-secondary transition-colors duration-200"
     >
       See how FENRIR solves this
