@@ -11,7 +11,7 @@ const {
   description = 'AI-powered analysis for investigative interviews — during and after every session. Coverage scoring, bias detection, and structured reports for security clearance, law enforcement, and defense.',
 } = Astro.props
 
-const base = import.meta.env.BASE_URL
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/')
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 ---
 

@@ -1,5 +1,5 @@
 ---
-const base = import.meta.env.BASE_URL
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/')
 const currentYear = new Date().getFullYear()
 
 const columns = [
@@ -13,7 +13,6 @@ const columns = [
   {
     title: 'Company',
     links: [
-      { label: 'Careers', href: `${base}careers` },
       { label: 'Contact', href: `${base}#contact` },
       { label: 'Privacy', href: '#' },
     ],

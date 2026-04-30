@@ -1,10 +1,9 @@
 ---
-const base = import.meta.env.BASE_URL
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/')
 
 const navItems = [
   { label: 'Product', href: `${base}product` },
   { label: 'Security', href: `${base}security` },
-  { label: 'Careers', href: `${base}careers` },
 ]
 ---
 
