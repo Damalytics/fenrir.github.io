@@ -7,7 +7,7 @@ const navItems = [
 ]
 ---
 
-<header id="site-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+<header id="site-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-transparent">
   <div class="mx-auto max-w-7xl px-6 lg:px-8">
     <nav class="flex items-center justify-between h-18 lg:h-20">
       <!-- Logo -->
@@ -90,9 +90,9 @@ const navItems = [
   // Scroll-based header background
   const updateHeader = () => {
     if (window.scrollY > 40) {
-      header.classList.add('bg-surface/80', 'backdrop-blur-xl', 'border-b', 'border-border/20')
+      header.classList.add('bg-surface/80', 'backdrop-blur-xl', 'border-border/20')
     } else {
-      header.classList.remove('bg-surface/80', 'backdrop-blur-xl', 'border-b', 'border-border/20')
+      header.classList.remove('bg-surface/80', 'backdrop-blur-xl', 'border-border/20')
     }
   }
 
