@@ -1,0 +1,231 @@
+---
+import Layout from '~/layouts/Layout.astro'
+import Header from '~/components/Header.astro'
+import ContactForm from '~/components/ContactForm.astro'
+import Footer from '~/components/Footer.astro'
+
+const trustAreas = [
+  {
+    number: '01',
+    title: 'Grounded Outputs',
+    description: 'The system generates content only from verified source material, with every output traceable to its origin in the transcript. No hallucinated conclusions — every finding links back to a specific moment in the interview.',
+  },
+  {
+    number: '02',
+    title: 'Calibrated Uncertainty',
+    description: 'The system communicates its confidence and abstains rather than confabulates. When FENRIR is uncertain, it says so — rather than generating plausible-sounding analysis that cannot be verified.',
+  },
+  {
+    number: '03',
+    title: 'Layered Human Oversight',
+    description: 'Human verification is required at multiple levels. Core safeguards are non-disableable by deployers — addressing a documented failure mode in current AI policing tools where agencies disabled hallucination safeguards.',
+  },
+  {
+    number: '04',
+    title: 'Provenance & Attribution',
+    description: 'AI and human contributions are distinguishable at the sentence level. Audit logs are immutable and disclosure-ready for Brady obligations, court-martial discovery, and EU AI Act Art. 13.',
+  },
+  {
+    number: '05',
+    title: 'Demographic & Linguistic Fairness',
+    description: 'Performance is measured and published across the customer\'s operating language and dialect set. Addressing documented ASR disparities by race and accent is a precondition for both civil-rights compliance and intelligence quality.',
+  },
+  {
+    number: '06',
+    title: 'Security & Sovereignty',
+    description: 'Air-gapped on-prem with local AI models is the default; cloud is the option. CJIS-compliant cloud, IL-4/5 cloud, and hybrid topologies are available where required. No data leaves the customer\'s infrastructure.',
+  },
+  {
+    number: '07',
+    title: 'Accountability Ecosystem',
+    description: 'External validation through ISO/IEC 42001 certification, independent audits, expert-witness readiness, mandatory AI literacy training, and a whistleblower channel.',
+  },
+]
+---
+
+<Layout
+  title="Security & Trust — FENRIR"
+  description="The Fenrir Trust Framework: engineering and policy commitments for AI in police and military interview settings. Air-gapped, EU AI Act compliant, zero contamination."
+>
+  <Header />
+  <main>
+    <!-- Hero -->
+    <section class="pt-32 pb-20 lg:pt-40 lg:pb-28">
+      <div class="mx-auto max-w-4xl px-6 lg:px-8">
+        <p class="text-xs font-medium text-primary-bright tracking-widest uppercase mb-6">Security</p>
+        <h1 class="text-4xl sm:text-5xl font-bold leading-tight tracking-tight text-foreground mb-6">
+          Security & Trust
+        </h1>
+        <p class="text-xl text-muted leading-relaxed max-w-3xl">
+          The Fenrir Trust Framework is the set of engineering and policy commitments that govern
+          how FENRIR is designed and deployed. We invite scrutiny before deployment — not after.
+        </p>
+      </div>
+    </section>
+
+    <!-- Air-gapped section -->
+    <section class="py-20 lg:py-28 border-t border-border/20">
+      <div class="mx-auto max-w-5xl px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+          <div>
+            <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-foreground mb-6">
+              Air-gapped by default
+            </h2>
+            <p class="text-muted leading-relaxed mb-4">
+              FENRIR runs entirely on-premise with local AI models. No data leaves the customer's
+              infrastructure. No cloud dependency. No outbound network as an exfiltration vector.
+            </p>
+            <p class="text-muted leading-relaxed mb-4">
+              Natively suitable for SCIFs, tactical environments without connectivity, and
+              environments requiring IL-4/5/6 classification levels.
+            </p>
+            <p class="text-sm text-muted/60 leading-relaxed">
+              Other AI tools in this category typically deploy via cloud APIs to foreign LLM providers.
+              FENRIR keeps data physically inside the customer's walls.
+            </p>
+          </div>
+          <div class="p-8 rounded-xl border border-border/40 bg-surface-card/20">
+            <h3 class="text-lg font-semibold text-foreground mb-4">Deployment options</h3>
+            <div class="space-y-4 text-sm">
+              <div class="flex items-start gap-3">
+                <span class="mt-1 w-2 h-2 rounded-full bg-primary-bright shrink-0"></span>
+                <div>
+                  <span class="font-medium text-foreground">Air-gapped on-prem</span>
+                  <span class="text-muted"> — Default. Local AI models, zero external dependencies.</span>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <span class="mt-1 w-2 h-2 rounded-full bg-primary/60 shrink-0"></span>
+                <div>
+                  <span class="font-medium text-foreground">CJIS-compliant cloud</span>
+                  <span class="text-muted"> — AWS GovCloud or Azure Government where required.</span>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <span class="mt-1 w-2 h-2 rounded-full bg-primary/40 shrink-0"></span>
+                <div>
+                  <span class="font-medium text-foreground">Hybrid</span>
+                  <span class="text-muted"> — Combined topologies for mixed-classification environments.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contamination ban -->
+    <section class="py-20 lg:py-28 border-t border-border/20">
+      <div class="mx-auto max-w-4xl px-6 lg:px-8">
+        <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-foreground mb-6">
+          Architectural ban on contamination
+        </h2>
+        <p class="text-muted leading-relaxed mb-8">
+          Police interrogation and military HUMINT share the same fundamental risk: AI suggestion
+          can contaminate the interview itself. The legal frames differ, but the engineering
+          response is identical.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- Permitted -->
+          <div class="p-8 rounded-xl border border-primary/20 bg-primary/5">
+            <h3 class="text-sm font-semibold text-primary-bright tracking-wider uppercase mb-4">
+              Permitted
+            </h3>
+            <ul class="space-y-3 text-sm text-muted">
+              <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-primary-bright mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+                Memory and coverage assistance
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-primary-bright mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+                Recall of verified case-file information
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-primary-bright mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+                Framework adherence scoring
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-primary-bright mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+                Bias pattern detection
+              </li>
+            </ul>
+          </div>
+
+          <!-- Prohibited -->
+          <div class="p-8 rounded-xl border border-red-500/20 bg-red-500/5">
+            <h3 class="text-sm font-semibold text-red-400 tracking-wider uppercase mb-4">
+              Prohibited — non-configurable
+            </h3>
+            <ul class="space-y-3 text-sm text-muted">
+              <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-red-400 mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+                Suggested questions or interrogation tactics
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-red-400 mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+                Deception or credibility scoring
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-red-400 mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+                Motive or character inference
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-red-400 mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+                Emotion inference
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="mt-8 text-sm text-muted/60 italic">
+          The interviewer authors every question. FENRIR supports the interviewer's judgment;
+          it does not substitute for it. These prohibitions are architectural — they cannot be
+          disabled by deployers.
+        </p>
+      </div>
+    </section>
+
+    <!-- Seven trust areas -->
+    <section class="py-20 lg:py-28 border-t border-border/20">
+      <div class="mx-auto max-w-4xl px-6 lg:px-8">
+        <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-foreground mb-12">
+          The Trust Framework
+        </h2>
+
+        <div class="space-y-0">
+          {trustAreas.map((area) => (
+            <div class="py-8 border-b border-border/20 first:pt-0 last:border-0">
+              <div class="flex items-start gap-6">
+                <span class="text-xs font-mono text-primary/40 mt-1 shrink-0">{area.number}</span>
+                <div>
+                  <h3 class="text-lg font-semibold text-foreground mb-2">{area.title}</h3>
+                  <p class="text-sm text-muted leading-relaxed">{area.description}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <ContactForm />
+  </main>
+  <Footer />
+</Layout>
