@@ -10,9 +10,9 @@
  */
 
 const RECIPIENTS = [
-  // Add recipient emails here
-  // 'hello@fenrir.ai',
-  // 'team@fenrir.ai',
+  // 'mats.dahl@psy.lu.se',
+  // 'daniel.malmgren@psy.lu.se',
+  'dangrahn@gmail.com',
 ];
 
 function doPost(e) {
