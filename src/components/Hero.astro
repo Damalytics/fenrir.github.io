@@ -3,8 +3,8 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/')
 ---
 
 <section class="relative overflow-hidden flex items-center justify-center min-h-[85vh] pt-24 pb-16">
-  <!-- Background wolf watermark -->
-  <div class="absolute inset-0 flex items-center justify-center pointer-events-none select-none opacity-[0.03]">
+  <!-- Background wolf watermark (matches content padding so it co-centers with the headline) -->
+  <div class="absolute inset-0 flex items-center justify-center pointer-events-none select-none opacity-[0.03] pt-24 pb-16">
     <img src={`${base}fenrir-logo.svg`} alt="" class="w-[800px] h-auto" />
   </div>
 
