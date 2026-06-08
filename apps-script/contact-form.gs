@@ -1,18 +1,21 @@
 /**
- * Fenrir Contact Form — Google Apps Script backend
+ * Damalytics — Fenrir contact form (Google Apps Script backend)
+ *
+ * Receives POSTs from src/components/ContactForm.astro and emails the message
+ * to the Damalytics company inbox. Subject prefix is [Fenrir] because the
+ * form is about the Fenrir product.
  *
  * Deployment:
  * 1. Go to https://script.google.com and create a new project
  * 2. Paste this code
- * 3. Update RECIPIENTS with your email addresses
- * 4. Deploy as Web App (Execute as: Me, Access: Anyone)
- * 5. Copy the deployment URL and set it as SCRIPT_URL in ContactForm.astro
+ * 3. Deploy as Web App (Execute as: Me, Access: Anyone)
+ * 4. Copy the deployment URL and set it as SCRIPT_URL in ContactForm.astro
  */
 
 const RECIPIENTS = [
-  // 'mats.dahl@psy.lu.se',
-  // 'daniel.malmgren@psy.lu.se',
-  'dangrahn@gmail.com',
+  'daniel.grahn@damalytics.ai',
+  'mats.dahl@damalytics.ai',
+  'daniel.malmgren@damalytics.ai',
 ];
 
 function doPost(e) {
