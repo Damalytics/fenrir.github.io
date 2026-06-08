@@ -5,7 +5,7 @@ export const GET: APIRoute = () => {
     `User-agent: *
 Allow: /
 
-Sitemap: https://fenrir.github.io/sitemap-index.xml`,
+Sitemap: https://www.damalytics.ai/sitemap-index.xml`,
     { headers: { 'Content-Type': 'text/plain' } },
   )
 }
