@@ -2,7 +2,7 @@
 const base = import.meta.env.BASE_URL.replace(/\/?$/, '/')
 ---
 
-<section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+<section class="relative overflow-hidden flex items-center justify-center min-h-[85vh] pt-24 pb-16">
   <!-- Background wolf watermark -->
   <div class="absolute inset-0 flex items-center justify-center pointer-events-none select-none opacity-[0.03]">
     <img src={`${base}fenrir-logo.svg`} alt="" class="w-[800px] h-auto" />
@@ -21,15 +21,19 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/')
 
     <!-- Headline -->
     <h1 class="animate-fade-up delay-1 text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight text-foreground mb-6">
-      Every interviewer performs
+      AI for <span class="text-primary-bright">investigative</span>
       <br />
-      <span class="text-primary-bright">like the best.</span>
+      interviews.
     </h1>
 
-    <!-- Subtitle -->
-    <p class="animate-fade-up delay-2 text-lg sm:text-xl text-muted max-w-2xl mx-auto leading-relaxed mb-4">
-      AI-powered analysis for investigative interviews — during and after every session.
-      Surface missed intelligence, detect cognitive bias, and ensure complete coverage.
+    <!-- Subtitle: value -->
+    <p class="animate-fade-up delay-2 text-lg sm:text-xl text-foreground/90 max-w-3xl mx-auto leading-relaxed mb-3">
+      Lift quality, cut report time from hours to minutes, all on infrastructure you control.
+    </p>
+
+    <!-- Subtitle: positioning -->
+    <p class="animate-fade-up delay-2 text-base sm:text-lg text-muted max-w-2xl mx-auto leading-relaxed mb-4">
+      Built for the interviews where missed intelligence has real consequences.
     </p>
 
     <!-- Sector line -->
