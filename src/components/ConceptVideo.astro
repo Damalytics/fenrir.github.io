@@ -1,0 +1,46 @@
+---
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/')
+const videoEmbedUrl = 'https://drive.google.com/file/d/1bUCXmLyY7e1cIM3oET3t_DFSh6eltASp/preview'
+---
+
+<section class="relative overflow-hidden py-24 lg:py-32 border-t border-border/20">
+  <!-- Full-bleed tent backdrop -->
+  <img
+    src={`${base}tent-hero.jpg`}
+    alt=""
+    aria-hidden="true"
+    loading="lazy"
+    decoding="async"
+    class="absolute inset-0 -z-10 w-full h-full object-cover"
+  />
+  <!-- Dark gradient overlay for legibility and clean section transitions -->
+  <div class="absolute inset-0 -z-10 bg-gradient-to-b from-surface/90 via-surface/70 to-surface/95"></div>
+
+  <div class="relative mx-auto max-w-6xl px-6 lg:px-8 text-center">
+    <p class="text-xs font-medium text-primary-bright tracking-widest uppercase mb-4">Concept</p>
+    <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-foreground mb-4">
+      FENRIR in the field
+    </h2>
+    <p class="text-lg text-muted max-w-2xl mx-auto leading-relaxed mb-12">
+      A concept walk-through for HUMINT operations.
+    </p>
+
+    <!-- Video card -->
+    <div class="mx-auto w-full lg:w-[75%]">
+      <div
+        class="relative aspect-video rounded-2xl overflow-hidden border border-border/40 bg-surface"
+        style="box-shadow: 0 0 80px rgba(26,122,69,0.25), 0 25px 60px -15px rgba(0,0,0,0.6);"
+      >
+        <iframe
+          src={videoEmbedUrl}
+          title="FENRIR concept — HUMINT operations"
+          loading="lazy"
+          allowfullscreen
+          allow="autoplay; encrypted-media; fullscreen; picture-in-picture"
+          class="absolute inset-0 w-full h-full"
+          frameborder="0"
+        ></iframe>
+      </div>
+    </div>
+  </div>
+</section>
