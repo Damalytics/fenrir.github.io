@@ -3,9 +3,9 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/')
 ---
 
 <section class="relative overflow-hidden flex items-center justify-center min-h-[85vh] pt-24 pb-16">
-  <!-- Background wolf watermark (matches content padding so it co-centers with the headline) -->
+  <!-- Background wolf watermark (face shifted down so it sits behind the headline, not above it) -->
   <div class="absolute inset-0 flex items-center justify-center pointer-events-none select-none opacity-[0.03] pt-24 pb-16">
-    <img src={`${base}fenrir-logo.svg`} alt="" class="w-[800px] h-auto" />
+    <img src={`${base}fenrir-logo.svg`} alt="" class="w-[800px] h-auto translate-y-[22%]" />
   </div>
 
   <!-- Gradient orb -->
