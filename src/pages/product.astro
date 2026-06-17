@@ -4,38 +4,107 @@ import Header from '~/components/Header.astro'
 import ContactForm from '~/components/ContactForm.astro'
 import Footer from '~/components/Footer.astro'
 
-const features = [
+const capabilities = [
   {
     icon: `<svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
       <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5M9 11.25v1.5M12 9v3.75m3-6v6" />
     </svg>`,
-    title: 'Coverage Scoring',
-    description: 'Quantitative assessment of topic coverage against interview objectives and framework requirements. Identifies unexplored domains, missed follow-ups, and risk indicators that went unchallenged. Flags exactly which areas need additional exploration.',
-    detail: 'Framework-aligned analysis ensures every interview covers all required domains — whether that is personal background, financial situation, and foreign contacts for security clearance, or ORBIT phase completeness for criminal investigation.',
+    title: 'Coverage analysis',
+    description:
+      'Tracks every assessment domain and intelligence requirement against the live transcript so nothing important is missed. Surfaces what has been answered, what is still open, and where the conversation drifted.',
   },
   {
     icon: `<svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
       <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
     </svg>`,
-    title: 'Bias Detection',
-    description: 'Pattern analysis identifying confirmation bias, leading questions, anchoring effects, premature closure, and tunnel vision. Grounded in established behavioral science — not opaque AI scoring.',
-    detail: 'Research confirms that even experienced investigators demonstrate confirmation bias under cognitive load. FENRIR detects when the interviewer is narrowing too early and — in real-time mode — prompts the disconfirming questions they are not thinking to ask.',
+    title: 'Bias & inconsistency detection',
+    description:
+      'Pattern analysis over the transcript through an analysis-of-competing-hypotheses lens. Surfaces contradictions, narrative breaks, and cognitive-bias indicators with timestamped quotes back to the source.',
   },
   {
     icon: `<svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
       <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
     </svg>`,
-    title: 'Structured Reports',
-    description: 'AI-generated analyst-ready reports with timestamped key moments, contradictions, topic coverage maps, and recommended follow-up areas. Delivered in minutes, replacing hours of manual writing.',
-    detail: 'Every finding traces back to a specific moment in the interview transcript. No AI confabulation — assessments are evidence-based and audit-ready, with AI and human contributions distinguishable at the sentence level.',
+    title: 'Report writing',
+    description:
+      "Generates an analyst-ready draft in the operator's existing template, minutes after the session ends. Replaces hours of manual writing with a citable, editable first pass.",
+  },
+]
+
+const domains = [
+  {
+    badge: 'Available now',
+    badgeClass: 'bg-primary/10 text-primary-bright border-primary/20',
+    title: 'Military HUMINT',
+    subtitle:
+      'Configured for Swedish defence HUMINT operations against the COMM and PLAT taxonomy, with multilingual transcription across Swedish, Russian, and English.',
+    before: {
+      label: 'Before — inputs',
+      items: [
+        'Case context, prior reporting, and Prioritised Intelligence Requirements (PIRs)',
+        'COMM and PLAT taxonomy as the assessment frame',
+        'Swedish HUMINT protocol template',
+      ],
+    },
+    after: {
+      label: 'After — outputs',
+      items: [
+        'Diarized transcript with speaker IDs across Swedish, Russian, and English',
+        'Coverage map and findings tagged by COMM and PLAT element',
+        'Inconsistency flags with transcript quotes and timestamps',
+        'Protocol rendered in the Swedish HUMINT format',
+      ],
+    },
   },
   {
-    icon: `<svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-      <path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" />
-    </svg>`,
-    title: 'Quality Metrics',
-    description: 'Session-over-session performance tracking with objective data. Per-interviewer quality trends, team-level benchmarking, and longitudinal improvement measurement.',
-    detail: 'Transforms interview performance from an unmeasured art into a managed, improvable discipline. Supervisors get unit-level dashboards showing adherence trends, common bias patterns, and training ROI.',
+    badge: 'Available now',
+    badgeClass: 'bg-primary/10 text-primary-bright border-primary/20',
+    title: 'Security vetting',
+    subtitle:
+      'Configured for Security Vetting against the assessment domains, producing a structured report in the Security Vetting Protocol format.',
+    before: {
+      label: 'Before — inputs',
+      items: [
+        'Case context: background, prior disclosures, and register checks',
+        'Assessment domains and risk categories as the analysis frame',
+        'Security Vetting Protocol template',
+        'Potentially adverse information from pre-interview planning',
+      ],
+    },
+    after: {
+      label: 'After — outputs',
+      items: [
+        'Diarized transcript with speaker IDs',
+        'Coverage map across the assessment domains',
+        'Risk-relevant findings and inconsistencies with transcript quotes',
+        'Structured report in the Security Vetting Protocol format',
+      ],
+    },
+  },
+  {
+    badge: 'Future',
+    badgeClass: 'bg-surface-card/40 text-muted border-border/40',
+    title: 'Police investigation',
+    subtitle:
+      'Targeted to PEACE-framework investigative interviewing for police investigators, with interview-plan coverage and a draft record in the investigator’s existing format.',
+    before: {
+      label: 'Before — inputs',
+      items: [
+        'Case file, witness or suspect context, and prior statements',
+        'PEACE-aligned interview plan and topic list',
+        'Jurisdiction-specific protocol template',
+        'Reference materials cleared for in-interview recall',
+      ],
+    },
+    after: {
+      label: 'After — outputs',
+      items: [
+        'Diarized transcript with speaker IDs',
+        'Coverage map against the PEACE-aligned interview plan',
+        'Inconsistency flags with transcript quotes and timestamps',
+        'Draft interview record in the investigator’s existing format',
+      ],
+    },
   },
 ]
 
@@ -43,14 +112,13 @@ const realTimeFeatures = [
   'Live bias alerts as confirmation patterns emerge',
   'Real-time coverage tracking against interview objectives',
   'Inconsistency flagging against prior statements and case file',
-  'Cognitive load management and break recommendations',
   'ORBIT/KREATIV phase tracking and adherence indicators',
 ]
 ---
 
 <Layout
   title="Product — Damalytics"
-  description="AI-powered interview analysis: coverage scoring, bias detection, structured reports, and quality metrics. Supporting interviewers during and after every session."
+  description="FENRIR analyses investigative interviews against the operator's framework — coverage analysis, bias detection, and report writing — configured per domain for military HUMINT, police investigation, and security vetting."
 >
   <Header />
   <main>
@@ -62,14 +130,14 @@ const realTimeFeatures = [
           Intelligence analysis for every interview
         </h1>
         <p class="text-xl text-muted leading-relaxed max-w-3xl">
-          FENRIR analyzes investigative interviews — during the session and after — to surface
+          FENRIR analyses investigative interviews — during the session and after — to surface
           missed intelligence, detect cognitive bias, and ensure complete coverage.
           Not because the AI thinks for the interviewer, but because it frees them to think better.
         </p>
       </div>
     </section>
 
-    <!-- Phase 1: Post-session analysis -->
+    <!-- Platform capabilities -->
     <section class="py-20 lg:py-28 border-t border-border/20">
       <div class="mx-auto max-w-6xl px-6 lg:px-8">
         <div class="flex items-center gap-3 mb-4">
@@ -78,31 +146,80 @@ const realTimeFeatures = [
           </span>
         </div>
         <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-foreground mb-4">
-          Post-session analysis
+          Platform capabilities
         </h2>
         <p class="text-lg text-muted leading-relaxed max-w-2xl mb-16">
-          Forensic-grade analysis delivered minutes after each session. Every interview reviewed.
-          Every bias caught. Every opportunity surfaced.
+          Forensic-grade analysis the moment the session ends. The same core capabilities
+          are configured per domain below.
         </p>
 
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {features.map((feature) => (
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {capabilities.map((capability) => (
             <div class="group p-8 rounded-xl border border-border/40 bg-surface-card/20
                         hover:border-primary/20 hover:bg-surface-card/40
                         transition-all duration-300">
-              <div class="text-primary-bright mb-5" set:html={feature.icon} />
-              <h3 class="text-xl font-semibold text-foreground mb-3">{feature.title}</h3>
-              <p class="text-sm text-muted leading-relaxed mb-4">{feature.description}</p>
-              <p class="text-xs text-muted/60 leading-relaxed">{feature.detail}</p>
+              <div class="text-primary-bright mb-5" set:html={capability.icon} />
+              <h3 class="text-xl font-semibold text-foreground mb-3">{capability.title}</h3>
+              <p class="text-sm text-muted leading-relaxed">{capability.description}</p>
             </div>
           ))}
         </div>
       </div>
     </section>
 
-    <!-- Phase 2: Real-time support -->
+    <!-- Domain modules -->
+    {domains.map((domain) => (
+      <section class="py-20 lg:py-28 border-t border-border/20">
+        <div class="mx-auto max-w-6xl px-6 lg:px-8">
+          <div class="flex items-center gap-3 mb-4">
+            <span class={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium border ${domain.badgeClass}`}>
+              {domain.badge}
+            </span>
+            <span class="text-xs font-medium text-muted/60 tracking-widest uppercase">Domain module</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-foreground mb-4">
+            {domain.title}
+          </h2>
+          <p class="text-lg text-muted leading-relaxed max-w-3xl mb-12">
+            {domain.subtitle}
+          </p>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="p-8 rounded-xl border border-border/40 bg-surface-card/20">
+              <h3 class="text-sm font-semibold text-primary-bright tracking-wider uppercase mb-5">
+                {domain.before.label}
+              </h3>
+              <ul class="space-y-3 text-sm text-muted">
+                {domain.before.items.map((item) => (
+                  <li class="flex items-start gap-3">
+                    <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary-bright/70 shrink-0"></span>
+                    <span class="leading-relaxed">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div class="p-8 rounded-xl border border-border/40 bg-surface-card/20">
+              <h3 class="text-sm font-semibold text-primary-bright tracking-wider uppercase mb-5">
+                {domain.after.label}
+              </h3>
+              <ul class="space-y-3 text-sm text-muted">
+                {domain.after.items.map((item) => (
+                  <li class="flex items-start gap-3">
+                    <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary-bright/70 shrink-0"></span>
+                    <span class="leading-relaxed">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+    ))}
+
+    <!-- Real-time support -->
     <section class="py-20 lg:py-28 border-t border-border/20">
-      <div class="mx-auto max-w-4xl px-6 lg:px-8">
+      <div class="mx-auto max-w-6xl px-6 lg:px-8">
         <div class="flex items-center gap-3 mb-4">
           <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-gold/10 text-gold border border-gold/20">
             Coming next
